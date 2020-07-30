@@ -36,6 +36,7 @@ MainWindow::MainWindow(QWidget *parent) :
     timer = new QTimer();
     QObject::connect(timer,SIGNAL(timeout()),this,SLOT(spawn()));
     timer->start(900);//Cada que pase este tiempo se crea
+
 }
 
 MainWindow::~MainWindow()
@@ -63,6 +64,7 @@ void MainWindow::actualizar()//Actualizar datos de los cuerpos
            Cuerpos[j]->ModValor();
     }
 }
+
 
 void MainWindow::spawn()
 {

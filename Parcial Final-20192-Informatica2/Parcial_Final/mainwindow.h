@@ -19,11 +19,11 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    void colision();
 
 private slots:
-  //  void on_pushButton_clicked(); //Para cuando se pulse el boton
     void actualizar(); //Actualizacion
-    void spawn(); //Para crear las bolas
+    void spawn();
 
 private:
     Ui::MainWindow *ui;

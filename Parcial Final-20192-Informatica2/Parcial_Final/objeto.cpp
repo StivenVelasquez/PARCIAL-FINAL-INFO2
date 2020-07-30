@@ -1,4 +1,5 @@
 #include "objeto.h"
+#include "planetas.h"
 
 float Objeto::getPx() const
 {
@@ -78,7 +79,7 @@ Objeto::Objeto()
     vx=100;
     vy=100;
     ax=0;
-    ay=0;
+    ay=rand()%20;
     e=50/100.0;
     k=11/1000;
     r=20;
@@ -133,12 +134,13 @@ void Objeto::colisionar()
     if(py-(r/2.0)>=400)
     {
         vy = -e*vy;
-        if(py-(r/2.0)<400.0)
+        if(py-(r/2.0)>400.0)
         {
             py = 399+(r/2);
         }
     }
     this->setPos(px,py);
+
 }
 
 void Objeto::advance(int phase)
@@ -153,3 +155,4 @@ void Objeto::advance(int phase)
     px = px + vx*dt + (ax*pow(dt,2))/2;
     py = py + vy*dt + (ay*pow(dt,2))/2;
 }
+

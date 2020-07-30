@@ -35,3 +35,23 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::actualizar()//Actualizar datos de los cuerpos
+{
+    for(int j=0; j<5; j++)
+       {
+           for(int k=0; k<5; k++)
+           {
+               if(j != k){
+                   Cuerpos[j]->CalcularAcelx(Cuerpos[k]);
+                   Cuerpos[j]->CalcularAcely(Cuerpos[k]);
+                   Cuerpos[j]->getPosx();
+                   Cuerpos[j]->getPosy();
+                   Cuerpos[j]->CalcularVelx();
+                   Cuerpos[j]->CalcularVely();
+                   Cuerpos[j]->mover();
+               }
+           }
+
+           Cuerpos[j]->ModValor();
+       }
+   }

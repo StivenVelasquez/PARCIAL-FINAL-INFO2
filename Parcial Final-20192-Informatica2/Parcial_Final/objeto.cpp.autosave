@@ -78,7 +78,7 @@ Objeto::Objeto()
     vx=100;
     vy=100;
     ax=0;
-    ay=0;
+    ay=rand()%20;
     e=50/100.0;
     k=11/1000;
     r=20;

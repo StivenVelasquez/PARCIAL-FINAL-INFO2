@@ -25,9 +25,17 @@ MainWindow::MainWindow(QWidget *parent) :
     scene->addItem(Cuerpos[3]);
     scene->addItem(Cuerpos[4]);
 
-    cronometro->start(10);
+    timer = new QTimer();
+    timer->start(40);
+    connect(timer,SIGNAL(timeout()),scene,SLOT(advance()));
 
+    cronometro->start(10);
     connect(cronometro,SIGNAL(timeout()),this,SLOT(actualizar()));
+
+    //Crear mortifagos
+    timer = new QTimer();
+    QObject::connect(timer,SIGNAL(timeout()),this,SLOT(spawn()));
+    timer->start(900);//Cada que pase este tiempo se crea
 }
 
 MainWindow::~MainWindow()
@@ -53,5 +61,12 @@ void MainWindow::actualizar()//Actualizar datos de los cuerpos
            }
 
            Cuerpos[j]->ModValor();
-       }
-   }
+    }
+}
+
+void MainWindow::spawn()
+{
+    //Se van creando las bolas
+    Objeto * bola = new Objeto();
+    scene->addItem(bola); //Se añaden a la escena
+}

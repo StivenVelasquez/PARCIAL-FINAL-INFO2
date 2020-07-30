@@ -17,7 +17,7 @@
 #define dt 0.1
 #define g 10
 
-class Objeto
+class Objeto: public QGraphicsItem
 {
 private:
     float px,py,vx,vy,ax,ay,v,tet;
